@@ -230,7 +230,7 @@ func main() {
 	portsOut = flag.Bool("ports", false, "")
 	flag.Usage = func() {
 		fmt.Printf("Usage:\n\t" +
-			"-i, <INPUT_FILE>       Define two files separated by comma.\n\t" +
+			"-i, <INPUT_FILE>       Define file with naabu output.\n\t" +
 			"-ips                   Save all IPs to a file if specified (optional).\n\t" +
 			"-ports                 Save all ports to a file if specified (optional).",
 		)
