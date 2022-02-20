@@ -1,5 +1,7 @@
 # brush_for_naabu
 
+<img  width="128" height="128" src="https://user-images.githubusercontent.com/37074372/154833276-fd22df53-f950-4941-879e-ad8db82f75ce.png" alt="logo"/>
+
 ## Overview
 
 Beautifier for [naabu](https://github.com/projectdiscovery/naabu) json output. Also allows to save IPs and ports to file.
