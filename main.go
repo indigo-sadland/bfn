@@ -151,19 +151,19 @@ func prepareOutput(hosts []HostInfo) {
 
 	if *ipsOut {
 		fileName = fileName + "_ips.txt"
-		writeToFile(fileName, removeDuplicates(ips))
+		writeToFile(fileName, "ips", removeDuplicates(ips))
 		fmt.Printf("\nIPs were successfully written to ./%s\n", fileName)
 	}
 
 	if *portsOut {
 		fileName = fileName + "_ports.txt"
-		writeToFile(fileName, removeDuplicates(ports))
+		writeToFile(fileName, "ports", removeDuplicates(ports))
 		fmt.Printf("\nPorts were successfully written to ./%s\n", fileName)
 	}
 
 }
 
-func writeToFile(fileName string, data []string) {
+func writeToFile(fileName, dataType string, data []string) {
 
 	f, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
@@ -173,8 +173,18 @@ func writeToFile(fileName string, data []string) {
 
 	wrt := bufio.NewWriter(f)
 
-	for _, line := range data {
-		_, err2 := wrt.WriteString(line + "\n")
+	var err2 error
+	length := len(data) - 1
+	for i, line := range data {
+		if dataType == "ports" {
+			// nmap friendly ports output.
+			if i != length {
+				line = line + ","
+			}
+			_, err2 = wrt.WriteString(line)
+		} else {
+			_, err2 = wrt.WriteString(line + "\n")
+		}
 		if err2 != nil {
 			gologger.Error().Msgf(err.Error())
 			return
