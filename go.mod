@@ -1,4 +1,4 @@
-module bfn
+module github.com/indigo_sadland/bfn
 
 go 1.17
 
