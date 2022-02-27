@@ -242,7 +242,7 @@ func main() {
 		fmt.Printf("Usage:\n\t" +
 			"-i, <INPUT_FILE>       Define file with naabu output.\n\t" +
 			"-ips                   Save all IPs to a file if specified (optional).\n\t" +
-			"-ports                 Save all ports to a file if specified (optional).",
+			"-ports                 Save all ports to a file if specified (optional).\n",
 		)
 	}
 	flag.Parse()
